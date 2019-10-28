@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="jquery.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+        	testtab();
+            $("input:button").on("click",function(){
+                var params = $("#frm").serialize();
+                
+                console.log(params)
+                $.ajax({
+                    url:"../InsertEmpServ",
+                    type:"post",
+                    data: params,
+                    success:function(){
+                        console.log("success")
+                        //location.href ="listEmployee.html";
+                    }
+                });
+            })
+        });
+        
+        function testtab(){
+        var table = $("<table> /");
+        $("#frm2").prepend(table);
+        
+        };
+        
+    </script>
+</head>
+<body>
+    <a href="listEmployee.html">리스트</a>
+    
+  	<form id ="frm2" action="">
+  		<input type = "text" name ="firstName">
+  	</form>
+  	
+    <form id ="frm" action="">
+        <table border='1'>
+    	<tr>	
+			<td>firstName  </td>
+    		<td><input type = "text" name ="firstName"></td>
+    	</tr>
+    	<tr>	
+			<td>lastName  </td>
+    		<td> <input type = "text" name ="lastName"></td>
+    	</tr>
+    	<tr>	
+			<td>email  </td>
+    		<td><input type = "text" name ="email"></td>
+    	</tr>
+    	<tr>	
+			<td>HireDate  </td>
+    		<td><input type = "date" name ="hireDate"></td>
+    	</tr>
+    	<tr>	
+			<td>Job  </td>
+    		<td><input type = "text" name ="jobid" value ="IT_PROG"></td>
+    	</tr>
+    	<tr>	
+			<td>Salary </td>
+    		<td><input type="text" name = "salary" value = "1000"></td>
+    	</tr>
+    	<tr>
+    	<td colspan="2">  <input type = "button" value="입력" > <br> </td>
+    	<tr>
+
+    </form>
+   
+</body>
+</html>
